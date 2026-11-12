@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- side_panel: cut 2  glue/screw to the outside of the box  RED=cut BLUE=engrave -->
+<svg xmlns="http://www.w3.org/2000/svg" width="251.00mm" height="267.00mm" viewBox="-2.0 -2.0 251.00 267.00">
+  <polygon points="0.000,263.000 247.000,263.000 247.000,260.000 239.000,260.000 239.000,175.000 113.000,0.000 0.000,0.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="25.000,250.000 45.000,250.000 45.000,236.000 25.000,236.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- servo_mount: 1x  stands behind back panel; servo ears screw to its BACK  RED=cut BLUE=engrave -->
+<svg xmlns="http://www.w3.org/2000/svg" width="74.00mm" height="219.00mm" viewBox="-2.0 -2.0 74.00 219.00">
+  <polygon points="0.000,0.000 0.000,212.000 20.000,212.000 20.000,215.000 50.000,215.000 50.000,212.000 70.000,212.000 70.000,0.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="23.400,41.500 46.600,41.500 46.600,28.500 23.400,28.500" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <circle cx="21.250" cy="35.000" r="1.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <circle cx="48.750" cy="35.000" r="1.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="29.000,202.000 41.000,202.000 41.000,190.000 29.000,190.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+</svg>

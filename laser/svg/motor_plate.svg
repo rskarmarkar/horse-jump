@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- motor_plate: 1x  motor face-mounts on the FRONT side  RED=cut BLUE=engrave -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64.00mm" height="107.00mm" viewBox="-2.0 -2.0 64.00 107.00">
+  <polygon points="0.000,0.000 0.000,100.000 15.000,100.000 15.000,103.000 45.000,103.000 45.000,100.000 60.000,100.000 60.000,0.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <circle cx="30.000" cy="35.000" r="6.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="38.000,33.400 47.000,33.400 47.000,36.600 38.000,36.600" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="28.400,27.000 28.400,18.000 31.600,18.000 31.600,27.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="22.000,36.600 13.000,36.600 13.000,33.400 22.000,33.400" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="31.600,43.000 31.600,52.000 28.400,52.000 28.400,43.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="14.000,63.000 19.000,63.000 19.000,59.000 14.000,59.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="41.000,63.000 46.000,63.000 46.000,59.000 41.000,59.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="14.000,11.000 19.000,11.000 19.000,7.000 14.000,7.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="41.000,11.000 46.000,11.000 46.000,7.000 41.000,7.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+</svg>

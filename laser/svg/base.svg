@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- base: 1x  top view, back edge at top  RED=cut BLUE=engrave -->
+<svg xmlns="http://www.w3.org/2000/svg" width="404.00mm" height="251.00mm" viewBox="-2.0 -2.0 404.00 251.00">
+  <polygon points="0.000,247.000 400.000,247.000 400.000,0.000 0.000,0.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="49.900,93.100 70.100,93.100 70.100,89.900 49.900,89.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="72.00" y="93.50" fill="#0000ff" font-family="Helvetica" font-size="5">back</text>
+  <polygon points="189.900,93.100 210.100,93.100 210.100,89.900 189.900,89.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="212.00" y="93.50" fill="#0000ff" font-family="Helvetica" font-size="5">back</text>
+  <polygon points="329.900,93.100 350.100,93.100 350.100,89.900 329.900,89.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="352.00" y="93.50" fill="#0000ff" font-family="Helvetica" font-size="5">back</text>
+  <polygon points="49.900,239.100 70.100,239.100 70.100,235.900 49.900,235.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="72.00" y="239.50" fill="#0000ff" font-family="Helvetica" font-size="5">lip</text>
+  <polygon points="189.900,239.100 210.100,239.100 210.100,235.900 189.900,235.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="212.00" y="239.50" fill="#0000ff" font-family="Helvetica" font-size="5">lip</text>
+  <polygon points="329.900,239.100 350.100,239.100 350.100,235.900 329.900,235.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="352.00" y="239.50" fill="#0000ff" font-family="Helvetica" font-size="5">lip</text>
+  <polygon points="29.900,149.100 60.100,149.100 60.100,145.900 29.900,145.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="62.00" y="149.50" fill="#0000ff" font-family="Helvetica" font-size="5">motor</text>
+  <polygon points="189.900,171.100 210.100,171.100 210.100,167.900 189.900,167.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="212.00" y="171.50" fill="#0000ff" font-family="Helvetica" font-size="5">sensor</text>
+  <polygon points="73.400,70.100 103.600,70.100 103.600,66.900 73.400,66.900" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="105.50" y="70.50" fill="#0000ff" font-family="Helvetica" font-size="5">servo</text>
+</svg>

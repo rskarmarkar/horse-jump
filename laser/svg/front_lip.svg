@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- front_lip: 1x  start button hole in the middle  RED=cut BLUE=engrave -->
+<svg xmlns="http://www.w3.org/2000/svg" width="404.00mm" height="92.00mm" viewBox="-2.0 -2.0 404.00 92.00">
+  <polygon points="0.000,0.000 0.000,85.000 50.000,85.000 50.000,88.000 70.000,88.000 70.000,85.000 190.000,85.000 190.000,88.000 210.000,88.000 210.000,85.000 330.000,85.000 330.000,88.000 350.000,88.000 350.000,85.000 400.000,85.000 400.000,0.000" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <polygon points="196.750,43.250 203.250,43.250 203.250,36.750 196.750,36.750" fill="none" stroke="#ff0000" stroke-width="0.1"/>
+  <text x="192.00" y="50.00" fill="#0000ff" font-family="Helvetica" font-size="5">START</text>
+</svg>
