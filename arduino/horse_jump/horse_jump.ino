@@ -45,6 +45,7 @@ const int BUTTON_PIN    = 2;
 // ---------- tuning (change these while testing) ----------
 const int HORSE_REST = 13;            // servo angle with horse on the ground. Below ~13 the axle hits the slot end and the servo stalls
 const int HORSE_UP   = 45;            // servo angle with horse in the air
+const bool SERVO_REVERSED = true;     // true = servo turns the other way (horse went DOWN on a jump). Flip if wrong.
 const unsigned long LIFT_TIME = 120;  // ms until horse is high enough to clear a post
 const unsigned long AIR_TIME  = 650;  // ms the horse stays up
 
@@ -94,16 +95,20 @@ void motorOff() {
 }
 
 // ---------- horse ----------
+void horseWrite(int a) {          // all servo moves go through here so the direction can be flipped
+  horse.write(SERVO_REVERSED ? 180 - a : a);
+}
+
 void startJump() {
   if (jumping || state == CRASHED) return;
   jumping = true;
   jumpStart = millis();
-  horse.write(HORSE_UP);
+  horseWrite(HORSE_UP);
 }
 
 void updateJump() {
   if (jumping && millis() - jumpStart > LIFT_TIME + AIR_TIME) {
-    horse.write(HORSE_REST);
+    horseWrite(HORSE_REST);
     jumping = false;
   }
 }
@@ -148,7 +153,7 @@ bool postArrived() {
 // ---------- game ----------
 void startGame() {
   digitalWrite(RED_LED_PIN, LOW);
-  horse.write(HORSE_REST);
+  horseWrite(HORSE_REST);
   jumping = false;
   score = 0;
   beltSpeed = SPEED_START;
@@ -217,7 +222,7 @@ void setup() {
   digitalWrite(BEAM_LED_PIN, HIGH);
   motorOff();
   horse.attach(SERVO_PIN);
-  horse.write(HORSE_REST);
+  horseWrite(HORSE_REST);
   calibrateBeam();
   Serial.println("READY");
 }
