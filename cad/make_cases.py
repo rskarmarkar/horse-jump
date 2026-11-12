@@ -128,4 +128,4 @@ def save(mesh, name):
 if __name__ == "__main__":
     save(arduino_case(), "arduino_case.stl")
     save(l298n_case(), "l298n_case.stl")
-    save(breadboard_case(), "breadboard_case.stl")
+    save(breadboard_case(85.0 - FIT, 58.0 - FIT), "breadboard_case.stl")   # inside pocket = 85 x 58
