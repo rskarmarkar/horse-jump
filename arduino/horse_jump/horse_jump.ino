@@ -43,7 +43,7 @@ const int GREEN_LED_PIN = 12;
 const int BUTTON_PIN    = 2;
 
 // ---------- tuning (change these while testing) ----------
-const int HORSE_REST = 20;            // servo angle with horse on the ground (original working value)
+const int HORSE_REST = 15;            // servo angle with horse on the ground (5° lower than the original 20)
 const int HORSE_UP   = 45;            // servo angle with horse in the air
 const unsigned long LIFT_TIME = 120;  // ms until horse is high enough to clear a post
 const unsigned long AIR_TIME  = 650;  // ms the horse stays up
