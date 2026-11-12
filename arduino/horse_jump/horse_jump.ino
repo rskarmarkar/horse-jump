@@ -14,10 +14,10 @@
   WIRING (Uno R3)
   ------------------------------------------------------------
   Servo signal ............ D9   (servo + to 5V, - to GND)
-  L298N ENA ............... D5   (REMOVE the ENA jumper cap first)
-  L298N IN1 ............... D7
-  L298N IN2 ............... D8
-  L298N OUT1/OUT2 ......... DC motor
+  L298N ENB ............... D5   (REMOVE the ENB jumper cap first)
+  L298N IN3 ............... D7
+  L298N IN4 ............... D8
+  L298N OUT3/OUT4 ......... DC motor  (motor uses the B side of the driver)
   L298N +12V/VIN .......... 9V supply +   (keep the 5V-EN jumper ON, leave the 5V terminal empty)
   L298N GND ............... supply - AND Arduino GND (common ground!)
   Beam LED ................ D4 -> 220Ω -> LED -> GND (points at the LDR)
@@ -33,9 +33,9 @@
 
 // ---------- pins ----------
 const int SERVO_PIN     = 9;
-const int MOTOR_EN      = 5;
-const int MOTOR_IN1     = 7;
-const int MOTOR_IN2     = 8;
+const int MOTOR_EN      = 5;   // -> L298N ENB
+const int MOTOR_IN1     = 7;   // -> L298N IN3
+const int MOTOR_IN2     = 8;   // -> L298N IN4
 const int LDR_PIN       = A0;
 const int BEAM_LED_PIN  = 4;
 const int RED_LED_PIN   = 11;

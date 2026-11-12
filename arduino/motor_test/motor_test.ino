@@ -1,6 +1,6 @@
 /*
   MOTOR TEST — L298N only, no game logic.
-  Same pins as horse_jump: ENA=D5, IN1=D7, IN2=D8.
+  Same pins as horse_jump: ENB=D5, IN3=D7, IN4=D8 (motor on OUT3/OUT4).
   Open Serial Monitor at 9600 and watch what it says.
   Cycle: forward full speed 3 s -> stop 1 s -> backward full 3 s -> stop 1 s
          -> forward at 210 3 s -> stop 1 s -> repeat
