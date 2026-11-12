@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Horse Jump</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
   <script src="https://unpkg.com/ml5@1.2.1/dist/ml5.min.js"></script>
   <style>
-    html, body { margin: 0; background: #111; overflow: hidden; font-family: system-ui, sans-serif; }
-    button { position: absolute; top: 16px; right: 16px; padding: 10px 16px; font-size: 16px;
-             border: 0; border-radius: 8px; background: #f2c14e; cursor: pointer; z-index: 2; }
+    html, body { margin: 0; background: #0f1720; overflow: hidden; font-family: Inter, system-ui, sans-serif; }
+    .connect {
+      position: absolute; top: 18px; right: 24px; z-index: 2;
+      padding: 10px 18px; font: 600 15px Inter, system-ui, sans-serif;
+      color: #1a1405; background: #f2c14e; border: 0; border-radius: 999px; cursor: pointer;
+      transition: transform .1s ease, background .15s ease;
+    }
+    .connect:hover { background: #f6d27a; }
+    .connect:active { transform: scale(.97); }
   </style>
 </head>
 <body>
