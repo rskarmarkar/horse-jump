@@ -204,6 +204,7 @@ void readSerial() {
     if (c == 'J') startJump();
     else if (c == 'S' && state != RUNNING) startGame();
     else if (c == 'D') debug = !debug;
+    else if (c == 'B') digitalWrite(BEAM_LED_PIN, !digitalRead(BEAM_LED_PIN));   // test: beam LED off/on
   }
 }
 
