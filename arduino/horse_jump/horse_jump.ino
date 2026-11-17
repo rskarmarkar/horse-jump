@@ -56,6 +56,7 @@ const float BLOCK_RATIO = 0.70;       // beam "blocked" below 70% of baseline li
 const float CLEAR_RATIO = 0.85;       // beam "clear" again above 85%
 const unsigned long BEAM_GRACE_MS    = 600;  // ignore the beam right after START (motor kick dims the LED)
 const unsigned long BLOCK_CONFIRM_MS = 3;    // beam must stay dark this long to count (filters flicker/noise)
+const int MIN_DROP = 40;              // ...and drop by at least this many counts (0–1023), so tiny light changes can't trigger
 
 // ---------- state ----------
 enum State { IDLE, RUNNING, CRASHED };
@@ -133,7 +134,7 @@ void calibrateBeam() {
 bool postArrived() {
   int v = analogRead(LDR_PIN);
   lastLdr = v;
-  bool dark = v < baseline * BLOCK_RATIO;
+  bool dark = v < baseline * BLOCK_RATIO && baseline - v >= MIN_DROP;
   bool arrived = false;
 
   if (!beamBlocked) {
@@ -149,8 +150,12 @@ bool postArrived() {
   if (beamBlocked && v > baseline * CLEAR_RATIO) {
     beamBlocked = false;
   }
-  // slowly follow room-light changes while the beam is clear
-  if (!beamBlocked) baseline += (v - baseline) * 0.002;
+  // slowly follow room-light changes while the beam is clear (time-based: ~3 s to adapt)
+  static unsigned long lastTrack = 0;
+  if (!beamBlocked && !beamDark && millis() - lastTrack >= 10) {
+    lastTrack = millis();
+    baseline += (v - baseline) * 0.003;
+  }
 
   if (debug && millis() - lastDebug > 100) {
     lastDebug = millis();
