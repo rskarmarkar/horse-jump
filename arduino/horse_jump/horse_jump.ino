@@ -54,6 +54,8 @@ const int SPEED_MAX   = 255;
 
 const float BLOCK_RATIO = 0.70;       // beam "blocked" below 70% of baseline light
 const float CLEAR_RATIO = 0.85;       // beam "clear" again above 85%
+const unsigned long BEAM_GRACE_MS    = 600;  // ignore the beam right after START (motor kick dims the LED)
+const unsigned long BLOCK_CONFIRM_MS = 3;    // beam must stay dark this long to count (filters flicker/noise)
 
 // ---------- state ----------
 enum State { IDLE, RUNNING, CRASHED };
@@ -68,6 +70,10 @@ unsigned long jumpStart = 0;
 
 float baseline = 0;
 bool beamBlocked = false;
+bool beamDark = false;           // reading is below the threshold, waiting for confirmation
+unsigned long darkSince = 0;
+unsigned long beamIgnoreUntil = 0;
+int lastLdr = 0;
 
 unsigned long greenUntil = 0;
 unsigned long lastButton = 0;
@@ -126,11 +132,20 @@ void calibrateBeam() {
 // returns true once, at the moment a post enters the beam
 bool postArrived() {
   int v = analogRead(LDR_PIN);
+  lastLdr = v;
+  bool dark = v < baseline * BLOCK_RATIO;
+  bool arrived = false;
 
-  if (!beamBlocked && v < baseline * BLOCK_RATIO) {
-    beamBlocked = true;
-    return true;
+  if (!beamBlocked) {
+    if (dark && !beamDark) { beamDark = true; darkSince = millis(); }
+    if (!dark) beamDark = false;
+    if (beamDark && millis() - darkSince >= BLOCK_CONFIRM_MS) {
+      beamBlocked = true;
+      beamDark = false;
+      arrived = millis() >= beamIgnoreUntil;
+    }
   }
+  if (arrived) return true;
   if (beamBlocked && v > baseline * CLEAR_RATIO) {
     beamBlocked = false;
   }
@@ -152,10 +167,12 @@ void startGame() {
   jumping = false;
   score = 0;
   beltSpeed = SPEED_START;
+  delay(500);                // let the horse/linkage settle out of the beam first
   calibrateBeam();           // belt is stopped here, so the beam should be clear
   motorRun(255);             // kick to overcome the gearbox's stiction
   delay(300);
   motorRun(beltSpeed);
+  beamIgnoreUntil = millis() + BEAM_GRACE_MS;
   state = RUNNING;
   Serial.println("START");
 }
@@ -164,6 +181,8 @@ void crash() {
   motorBrake();
   state = CRASHED;
   Serial.print("CRASH,"); Serial.println(score);
+  Serial.print("WHY,ldr,"); Serial.print(lastLdr);              // shows in the Serial Monitor / p5 console
+  Serial.print(",base,"); Serial.println((int)baseline);
 }
 
 void addPoint() {
