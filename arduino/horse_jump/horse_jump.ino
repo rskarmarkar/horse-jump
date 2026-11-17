@@ -52,11 +52,11 @@ const int SPEED_START = 255;          // belt PWM (0–255). 255 = full speed al
 const int SPEED_STEP  = 0;            // added per point
 const int SPEED_MAX   = 255;
 
-const float BLOCK_RATIO = 0.70;       // beam "blocked" below 70% of baseline light
+const float BLOCK_RATIO = 0.60;       // "blocked" below 60% of normal light (a hand over the LDR easily does this)
 const float CLEAR_RATIO = 0.85;       // beam "clear" again above 85%
 const unsigned long BEAM_GRACE_MS    = 600;  // ignore the beam right after START (motor kick dims the LED)
 const unsigned long BLOCK_CONFIRM_MS = 3;    // beam must stay dark this long to count (filters flicker/noise)
-const int MIN_DROP = 40;              // ...and drop by at least this many counts (0–1023), so tiny light changes can't trigger
+const int MIN_DROP = 15;              // ...and by at least this many counts (0–1023)
 
 // ---------- state ----------
 enum State { IDLE, RUNNING, CRASHED };
@@ -225,7 +225,7 @@ void updateLeds() {
     digitalWrite(GREEN_LED_PIN, (t / 600) % 2);   // slow "ready" blink
   } else {
     digitalWrite(RED_LED_PIN, LOW);
-    digitalWrite(GREEN_LED_PIN, t < greenUntil);  // blip on each point
+    digitalWrite(GREEN_LED_PIN, HIGH);            // steady while playing: a blinking LED near the LDR looks like a shadow
   }
 }
 
